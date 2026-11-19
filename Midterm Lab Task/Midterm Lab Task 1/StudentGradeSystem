@@ -1,0 +1,98 @@
+
+import java.util.Scanner;
+
+public class StudentGradeManagement {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Declare subject names
+        String[] subj = {
+            "Java",
+            "Database",
+            "Networking"
+        };
+
+        // Declare a 3D array for grades
+        // 2 Sections, 3 Students, 3 Subjects
+        int[][][] grades = new int[2][3][3];
+
+        // Input grades for each section
+        System.out.println("STUDENT GRADE MANAGEMENT SYSTEM");
+        System.out.println("================================");
+
+        for (int i = 0; i < 2; i++) {
+
+            System.out.println("\nEnter grades for Section " + (i + 1));
+
+            for (int j = 0; j < 3; j++) {
+
+                System.out.println("\nStudent " + (j + 1));
+
+                for (int k = 0; k < 3; k++) {
+
+                    System.out.print("Enter " + subj[k] + " grade: ");
+                    grades[i][j][k] = sc.nextInt();
+
+                }
+            }
+        }
+
+        // Display student grades and averages
+        for (int i = 0; i < 2; i++) {
+
+            System.out.println("\nSECTION " + (i + 1));
+            System.out.println("----------------------------");
+
+            double secTotal = 0;
+
+            for (int j = 0; j < 3; j++) {
+
+                System.out.println("\nStudent " + (j + 1));
+
+                int sum = 0;
+
+                // Display each subject grade
+                for (int k = 0; k < 3; k++) {
+
+                    System.out.println(
+                        subj[k] + ": " + grades[i][j][k]
+                    );
+
+                    sum += grades[i][j][k];
+
+                }
+
+                // Calculate student average
+                double avg = sum / 3.0;
+
+                System.out.printf(
+                    "Student Average: %.2f\n", avg
+                );
+
+                // Add average to section total
+                secTotal += avg;
+
+            }
+
+            // Calculate section average
+            double sectionAverage = secTotal / 3.0;
+
+            System.out.println("\n----------------------------");
+
+            System.out.printf(
+                "Section Average: %.2f\n", sectionAverage
+            );
+
+            System.out.println("----------------------------");
+
+        }
+
+        // End of program
+        System.out.println("\nGrade computation completed.");
+
+        sc.close();
+
+    }
+}
