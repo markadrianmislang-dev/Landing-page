@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mark Adrian D. Mislang | Blue Lock Portfolio</title>
+<meta name="description" content="Portfolio of Mark Adrian D. Mislang: lab tasks, learning journal, and contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Teko:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#04060d;--panel:#0b1224;--blue:#2b6bff;--cyan:#3ee0ff;--white:#f4f8ff;--muted:#8fa2c7}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--white);font:400 1.05rem/1.6 Barlow,system-ui,sans-serif;overflow-x:hidden;
+background-image:linear-gradient(rgba(43,107,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(43,107,255,.08) 1px,transparent 1px);background-size:40px 40px}
+body::before{content:"";position:fixed;inset:0;background:linear-gradient(115deg,transparent 55%,rgba(43,107,255,.18) 55.2%,rgba(43,107,255,.05) 70%,transparent 70.2%);pointer-events:none}
+body::after{content:"";position:fixed;inset:0;background:radial-gradient(320px at var(--mx,70%) var(--my,25%),rgba(62,224,255,.14),transparent);pointer-events:none}
+h1,h2,h3{font-family:Teko,Impact,sans-serif;margin:0;line-height:1;text-transform:uppercase;letter-spacing:.02em}
+a{color:var(--cyan)}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+header{position:sticky;top:0;z-index:20;background:rgba(4,6,13,.92);border-bottom:2px solid var(--blue);backdrop-filter:blur(6px)}
+header .wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.logo{font:700 1.6rem Teko,sans-serif;margin-right:auto}
+nav a{color:var(--white);text-decoration:none;margin-right:16px;font-weight:600}
+nav a:hover{color:var(--cyan)}
+button,.btn{font:600 .95rem Barlow,sans-serif;color:var(--white);background:transparent;border:2px solid var(--blue);padding:7px 14px;cursor:pointer;transition:.2s;text-decoration:none;display:inline-block}
+button:hover,.btn:hover{background:var(--blue);box-shadow:0 0 18px var(--blue)}
+.btn.fill{background:var(--blue)}
+.ctl{display:flex;gap:8px;align-items:center}
+input[type=range]{width:80px;accent-color:var(--cyan)}
+#msg{font-size:.85rem;color:var(--muted)}
+.tick{background:var(--blue);overflow:hidden;white-space:nowrap;font:700 1.15rem Teko,sans-serif;letter-spacing:.12em;transform:skewY(-1deg);margin-top:6px;position:relative;z-index:1}
+.tick div{display:inline-block;padding:4px 0;animation:mq 26s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.hero{padding:70px 0 70px;display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center}
+h1{font-size:clamp(3.4rem,10vw,6.6rem);font-weight:700;animation:slash .9s cubic-bezier(.2,.8,.2,1) both}
+h1 span{display:block;color:var(--blue);text-shadow:0 0 24px rgba(43,107,255,.7)}
+.tag{font-size:1.3rem;color:var(--muted);margin:18px 0 22px;animation:fade 1s .5s both}
+@keyframes slash{from{clip-path:inset(0 100% 0 0);transform:translateX(-30px)}to{clip-path:inset(0 0 0 0);transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.stage{position:relative;height:440px;border:2px solid #1c2c52;background:radial-gradient(circle at 50% 70%,rgba(43,107,255,.35),transparent 60%),var(--panel);clip-path:polygon(0 0,94% 0,100% 8%,100% 100%,6% 100%,0 92%);animation:fade 1s .6s both}
+.stage::before,.stage::after{content:"";position:absolute;width:34px;height:34px;border:3px solid var(--cyan);pointer-events:none}
+.stage::before{top:10px;left:10px;border-right:0;border-bottom:0}
+.stage::after{bottom:10px;right:10px;border-left:0;border-top:0}
+#stage{width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+#stage:active{cursor:grabbing}
+.wm{position:absolute;top:8px;right:18px;font:700 4.5rem Teko,sans-serif;color:transparent;-webkit-text-stroke:1px rgba(62,224,255,.35);pointer-events:none}
+#cap{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:.85rem;color:var(--muted)}
+section{padding:20px 0 56px}
+section::before{content:"";display:block;height:14px;margin-bottom:34px;background:repeating-linear-gradient(115deg,var(--blue) 0 18px,transparent 18px 30px)}
+h2{font-size:3rem;margin-bottom:22px;display:flex;align-items:baseline;gap:14px}
+h2 i{font-style:normal;font-size:4.2rem;color:transparent;-webkit-text-stroke:2px var(--cyan)}
+.box{background:var(--panel);border-left:5px solid var(--blue);padding:22px}
+.two{display:grid;grid-template-columns:1.5fr 1fr;gap:24px}
+.player h3{font-size:1.8rem;margin-bottom:10px;color:var(--cyan)}
+.bar{margin:12px 0}
+.bar div{height:10px;background:#16213f;margin-top:4px}
+.bar b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));animation:fill 1.4s .9s forwards}
+@keyframes fill{to{width:var(--w)}}
+#learn{list-style:none;padding:0;margin:0;max-width:70ch}
+#learn li{display:flex;gap:10px;align-items:center;padding:12px 16px;margin-bottom:8px;background:var(--panel);border-left:5px solid var(--cyan);transition:.2s}
+#learn li:hover{transform:translateX(10px);box-shadow:-6px 0 18px rgba(62,224,255,.3)}
+#learn span{flex:1}
+.x{display:none;padding:2px 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:var(--panel);border:2px solid #1c2c52;padding:22px;position:relative;overflow:hidden;clip-path:polygon(0 0,100% 0,100% 88%,92% 100%,0 100%);transition:transform .25s,border-color .25s,box-shadow .25s}
+.card::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(62,224,255,.25),transparent);transform:skewX(-25deg);transition:left .6s;pointer-events:none}
+.card:hover{border-color:var(--cyan);box-shadow:0 10px 30px rgba(43,107,255,.45)}
+.card:hover::before{left:130%}
+.card h3{font-size:1.7rem;margin-bottom:6px}
+.card .st{color:var(--cyan);font-weight:600;margin-bottom:8px}
+.card p{margin:0 0 10px;color:var(--muted)}
+.contact p{margin:6px 0}
+.contact b{display:inline-block;min-width:90px;color:var(--cyan)}
+footer{padding:30px 22px 60px;text-align:center;color:var(--muted);border-top:2px solid var(--blue);position:relative;z-index:1}
+#edit,#reset,#add,.addtask,.rmtask{display:none;margin-top:8px}
+#edit{margin-top:0}
+body.unlocked #edit,body.unlocked #reset{display:inline-block}
+body.editing #add,body.editing .addtask,body.editing .rmtask{display:inline-block}
+.rmtask{margin-left:8px}
+body.editing [data-edit],body.editing #learn span{outline:2px dashed var(--cyan);outline-offset:3px;cursor:text}
+body.editing .x{display:inline-block}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.hero{padding:40px 0}.stage{height:360px}}
+@media (prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}.bar b{width:var(--w)}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="logo">M.A.D. MISLANG</span>
+    <nav aria-label="Main"><a href="#profile">Profile</a><a href="#learning">Learning</a><a href="#midterm">Midterm</a><a href="#final">Final</a><a href="#contact">Contact</a></nav>
+    <div class="ctl">
+      <button id="lock" aria-pressed="true">Unlock</button>
+      <button id="edit" aria-pressed="false">Edit mode</button>
+      <button id="play" aria-pressed="false">Play music</button>
+      <label class="ctl">Vol <input id="vol" type="range" min="0" max="1" step="0.05" value="0.4"></label>
+      <span id="msg" role="status"></span>
+    </div>
+  </div>
+</header>
+<div class="tick" aria-hidden="true"><div>NEW CODER &#9670; BIG EGO &#9670; FUTURE #1 &#9670; NEW CODER &#9670; BIG EGO &#9670; FUTURE #1 &#9670; NEW CODER &#9670; BIG EGO &#9670; FUTURE #1 &#9670; NEW CODER &#9670; BIG EGO &#9670; FUTURE #1 &#9670; </div></div>
+<audio id="bgm" loop preload="none" src="music/theme.mp3"></audio>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Mark Adrian D.<span>Mislang</span></h1>
+      <p class="tag" data-edit data-key="tagline">New coder. Big ego. Future best developer.</p>
+      <a class="btn fill" href="#midterm">See my lab tasks</a> <a class="btn" href="#contact">Contact me</a>
+    </div>
+    <div class="stage">
+      <span class="wm" aria-hidden="true">01</span>
+      <canvas id="stage" role="img" aria-label="A 3D striker model that spins. Drag it to rotate."></canvas>
+      <div id="cap">Original striker model. Drag to spin it.</div>
+    </div>
+  </div>
+
+  <section id="profile">
+    <h2><i>01</i>Profile</h2>
+    <div class="two">
+      <div class="box" data-edit data-key="about">I'm Mark Adrian D. Mislang, a new developer and coder from National University. I'm just getting started, but I'm learning fast, and I'm going to be the best. Every line of code I write brings me one step closer.</div>
+      <div class="box player">
+        <h3 data-edit data-key="p-title">Ego Meter</h3>
+        <div class="bar"><span data-edit data-key="b1">Java</span><div><b style="--w:70%"></b></div></div>
+        <div class="bar"><span data-edit data-key="b2">Problem solving</span><div><b style="--w:60%"></b></div></div>
+        <div class="bar"><span data-edit data-key="b3">Consistency</span><div><b style="--w:85%"></b></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="learning">
+    <h2><i>02</i>Learning</h2>
+    <ul id="learn"></ul>
+    <button id="add">Add a line</button>
+  </section>
+
+  <section id="midterm">
+    <h2><i>03</i>Midterm Lab Tasks</h2>
+    <div class="grid" id="g1"></div>
+    <button class="addtask" data-sec="m">Add midterm task</button><button class="rmtask" data-sec="m">Remove last</button>
+  </section>
+
+  <section id="final">
+    <h2><i>04</i>Final Lab Tasks</h2>
+    <div class="grid" id="g2"></div>
+    <button class="addtask" data-sec="f">Add final task</button><button class="rmtask" data-sec="f">Remove last</button>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2><i>05</i>Contact Me</h2>
+    <div class="box">
+      <p><b>Email</b> <span data-edit data-key="c-email">your.email@example.com</span></p>
+      <p><b>GitHub</b> <span data-edit data-key="c-gh">github.com/markadrianmislang-dev</span></p>
+      <p><b>Other</b> <span data-edit data-key="c-other">Facebook / LinkedIn / Discord</span></p>
+      <p><button id="reset">Reset all edits</button></p>
+    </div>
+  </section>
+</main>
+<footer>&copy; 2026 Mark Adrian D. Mislang. Edits made in Edit mode are saved in this browser only.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ---------- 3D spinning striker (original low-poly model built from shapes) ----------
+(function(){
+  var cv=document.getElementById('stage'),cap=document.getElementById('cap');
+  if(typeof THREE==='undefined'){cap.textContent='3D could not load. Check your internet connection.';return}
+  var R;try{R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true})}catch(e){cap.textContent='3D is not supported on this device.';return}
+  R.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+  var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(40,1,.1,50);
+  C.position.set(0,1.9,7.4);C.lookAt(0,1.4,0);
+  S.add(new THREE.AmbientLight(0x9fb4ff,.8));
+  var L=new THREE.DirectionalLight(0xffffff,1);L.position.set(3,6,5);S.add(L);
+  var B=new THREE.PointLight(0x2b6bff,1.8,20);B.position.set(-4,2,3);S.add(B);
+  function M(c){return new THREE.MeshStandardMaterial({color:c,roughness:.6,flatShading:true})}
+  var blue=M(0x2b6bff),skin=M(0xf1c9a5),dark=M(0x0b1224),hair=M(0x0a0f1c),cyan=M(0x3ee0ff),white=M(0xf4f8ff);
+  var G=new THREE.Group();S.add(G);
+  function add(geo,mat,x,y,z,rz){var m=new THREE.Mesh(geo,mat);m.position.set(x,y,z);if(rz)m.rotation.z=rz;G.add(m);return m}
+  add(new THREE.SphereGeometry(.42,20,16),skin,0,2.75,0);
+  add(new THREE.SphereGeometry(.47,20,12,0,Math.PI*2,0,Math.PI/1.9),hair,0,2.8,-.03);
+  add(new THREE.CylinderGeometry(.5,.4,1.15,12),blue,0,1.95,0);
+  add(new THREE.BoxGeometry(.7,.1,.02),cyan,0,2.2,.46);
+  add(new THREE.CylinderGeometry(.42,.45,.5,12),dark,0,1.2,0);
+  [-1,1].forEach(function(s){
+    add(new THREE.CylinderGeometry(.17,.14,.5,10),skin,s*.2,.8,0);
+    add(new THREE.CylinderGeometry(.14,.12,.6,10),white,s*.2,.35,0);
+    add(new THREE.BoxGeometry(.3,.16,.55),cyan,s*.2,.02,.1);
+    add(new THREE.CylinderGeometry(.1,.08,.9,10),skin,s*.7,1.8,0,s*.25);
+    add(new THREE.CylinderGeometry(.14,.14,.35,10),blue,s*.64,2.25,0,s*.25);
+  });
+  var ball=add(new THREE.IcosahedronGeometry(.38,1),white,1.4,.5,.4);
+  ball.add(new THREE.Mesh(new THREE.IcosahedronGeometry(.4,1),new THREE.MeshBasicMaterial({color:0x3ee0ff,wireframe:true})));
+  var ring=new THREE.Mesh(new THREE.RingGeometry(1.7,1.85,48),new THREE.MeshBasicMaterial({color:0x3ee0ff,side:THREE.DoubleSide}));
+  ring.rotation.x=-Math.PI/2;ring.position.y=-.1;S.add(ring);
+  function fit(){var w=cv.parentElement.clientWidth,h=cv.parentElement.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}
+  fit();window.addEventListener('resize',fit);
+  var drag=false,lx=0,t=0,reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  cv.addEventListener('pointerdown',function(e){drag=true;lx=e.clientX;cv.setPointerCapture(e.pointerId)});
+  cv.addEventListener('pointermove',function(e){if(drag){G.rotation.y+=(e.clientX-lx)*.012;lx=e.clientX}});
+  ['pointerup','pointercancel'].forEach(function(n){cv.addEventListener(n,function(){drag=false})});
+  (function loop(){
+    requestAnimationFrame(loop);t+=.016;
+    if(!drag&&!reduce)G.rotation.y+=.012;
+    ball.position.y=.5+Math.abs(Math.sin(t*2.2))*.5;ball.rotation.x+=.03;
+    ring.rotation.z-=.01;R.render(S,C);
+  })();
+})();
+</script>
+<script>
+// ---------- Page logic: editing, lock mode, task cards, music ----------
+(function(){
+  var P='bl:',$=function(s){return document.querySelector(s)},body=document.body;
+  function get(k,d){try{var v=localStorage.getItem(P+k);return v===null?d:v}catch(e){return d}}
+  function set(k,v){try{localStorage.setItem(P+k,v)}catch(e){}}
+  function editing(){return body.classList.contains('editing')}
+
+  // Glow follows the mouse
+  window.addEventListener('pointermove',function(e){body.style.setProperty('--mx',e.clientX+'px');body.style.setProperty('--my',e.clientY+'px')});
+
+  // Every [data-edit] field remembers its text
+  function bind(){
+    document.querySelectorAll('[data-edit]').forEach(function(el){
+      if(!el._b){
+        el._b=1;
+        var v=get(el.dataset.key,null);
+        if(v!==null)el.textContent=v;
+        el.addEventListener('input',function(){set(el.dataset.key,el.textContent)});
+      }
+      el.contentEditable=editing();
+    });
+  }
+
+  // Lab task cards: m = midterm, f = final (3 each, add more with the buttons)
+  var cfg={m:['#g1','Midterm Lab Task'],f:['#g2','Final Lab Task']};
+  var D={m1t:'Midterm Lab Task 1 - Matrix',m1s:'Status: Completed',
+    m1d:'A Java program that fills a 3x3 array and shows its row, column, and diagonal sums. I learned how to use 2D arrays, nested loops, and printf formatting.',
+    m1l:'Source: Midterm Lab Task 1 folder'};
+  var SRC='https://github.com/markadrianmislang-dev/Landing-page/tree/main/Midterm%20Lab%20Task/Midterm%20Lab%20Task%201';
+  function count(p){return parseInt(get(p+'n','3'),10)||3}
+  function render(p){
+    var n=count(p),h='',l=cfg[p][1];
+    for(var i=1;i<=n;i++){
+      var k=p+i;
+      h+='<article class="card"><h3 data-edit data-key="'+k+'t">'+(D[k+'t']||l+' '+i+' Title')+'</h3>'+
+      '<div class="st" data-edit data-key="'+k+'s">'+(D[k+'s']||'Status: placeholder')+'</div>'+
+      '<p data-edit data-key="'+k+'d">'+(D[k+'d']||'Describe what this lab task does and what you learned.')+'</p>'+
+      '<p data-edit data-key="'+k+'l">'+(D[k+'l']||'Link: github.com/YOUR-USERNAME/YOUR-REPO')+'</p>'+
+      (k==='m1'?'<a class="btn" href="'+SRC+'" target="_blank" rel="noopener">View source code</a>':'')+'</article>';
+    }
+    $(cfg[p][0]).innerHTML=h;bind();
+  }
+  render('m');render('f');
+  document.querySelectorAll('.addtask').forEach(function(b){
+    b.onclick=function(){var p=this.dataset.sec;set(p+'n',count(p)+1);render(p)};
+  });
+  document.querySelectorAll('.rmtask').forEach(function(b){
+    b.onclick=function(){
+      var p=this.dataset.sec,n=count(p);
+      if(n<=1||!confirm('Remove the last task card?'))return;
+      ['t','s','d','l'].forEach(function(x){try{localStorage.removeItem(P+p+n+x)}catch(e){}});
+      set(p+'n',n-1);render(p);
+    };
+  });
+  bind();
+
+  // 3D tilt on cards
+  if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    document.querySelectorAll('.grid').forEach(function(g){
+      g.addEventListener('pointermove',function(e){
+        var c=e.target.closest('.card');if(!c)return;var r=c.getBoundingClientRect();
+        c.style.transform='perspective(700px) rotateY('+(((e.clientX-r.left)/r.width-.5)*12)+'deg) rotateX('+(-((e.clientY-r.top)/r.height-.5)*12)+'deg) translateY(-6px)';
+      });
+      g.addEventListener('pointerout',function(e){var c=e.target.closest('.card');if(c)c.style.transform=''});
+    });
+  }
+
+  // Learning list: one line per item
+  var def=['Learning Java arrays and loops.','Practicing every day, one lab at a time.','Building my GitHub portfolio.'];
+  var lines;
+  try{lines=JSON.parse(get('learn',null))||def}catch(e){lines=def}
+  function draw(){
+    var ul=$('#learn');ul.innerHTML='';
+    lines.forEach(function(t,i){
+      var li=document.createElement('li'),s=document.createElement('span'),x=document.createElement('button');
+      s.textContent=t;s.contentEditable=editing();
+      s.addEventListener('input',function(){lines[i]=s.textContent;set('learn',JSON.stringify(lines))});
+      x.className='x';x.textContent='Delete';x.setAttribute('aria-label','Delete line '+(i+1));
+      x.onclick=function(){lines.splice(i,1);set('learn',JSON.stringify(lines));draw()};
+      li.appendChild(s);li.appendChild(x);ul.appendChild(li);
+    });
+  }
+  draw();
+  $('#add').onclick=function(){lines.push('New learning line');set('learn',JSON.stringify(lines));draw()};
+
+  // Edit mode and lock mode (locked = every editing control hidden)
+  function setEdit(on){
+    body.classList.toggle('editing',on);
+    $('#edit').setAttribute('aria-pressed',on);$('#edit').textContent=on?'Done editing':'Edit mode';
+    bind();
+    document.querySelectorAll('#learn span').forEach(function(s){s.contentEditable=on});
+  }
+  $('#edit').onclick=function(){setEdit(!editing())};
+  function setLock(l){
+    set('locked',l?'1':'0');
+    body.classList.toggle('unlocked',!l);
+    if(l)setEdit(false);
+    $('#lock').textContent=l?'Unlock':'Lock';$('#lock').setAttribute('aria-pressed',l);
+  }
+  $('#lock').onclick=function(){setLock(body.classList.contains('unlocked'))};
+  setLock(get('locked','1')==='1');
+  $('#reset').onclick=function(){
+    if(!confirm('Reset all edits on this browser?'))return;
+    try{Object.keys(localStorage).forEach(function(k){if(k.indexOf(P)===0)localStorage.removeItem(k)})}catch(e){}
+    location.reload();
+  };
+
+  // Optional music: add your own file at music/theme.mp3
+  var a=$('#bgm'),pb=$('#play'),msg=$('#msg');
+  a.volume=0.4;
+  $('#vol').oninput=function(){a.volume=this.value};
+  pb.onclick=function(){
+    if(a.paused){
+      a.play().then(function(){pb.textContent='Pause music';pb.setAttribute('aria-pressed',true);msg.textContent=''})
+       .catch(function(){msg.textContent='Add music/theme.mp3 to play music'});
+    }else{a.pause();pb.textContent='Play music';pb.setAttribute('aria-pressed',false)}
+  };
+})();
+</script>
+</body>
+</html>
